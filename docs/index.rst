@@ -1,0 +1,3 @@
+=================collective.rating
+=================
+User documentation

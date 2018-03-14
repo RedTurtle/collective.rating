@@ -1,0 +1,53 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.rating">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="collective.rating.interfaces.ICollectiveRatingLayer"
+      />
+
+  <!-- Publish static files -->
+  <plone:static
+      name="collective.rating"
+      type="plone"
+      directory="static"
+      />
+
+  <!-- view for control panel -->
+  <browser:page
+      for="Products.CMFCore.interfaces.ISiteRoot"
+      name="rating-settings"
+      permission="cmf.ManagePortal"
+      class=".settings.RatingSettings"
+      layer="collective.rating.interfaces.ICollectiveRatingLayer"
+      />
+
+  <!-- viewlet for rating in object's view -->
+  <browser:viewlet
+    name="rating_viewlet"
+    for="collective.rating.behaviors.rating.IRatingLayer"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+    class=".rating_viewlet.RatingManagerViewlet"
+    layer="collective.rating.interfaces.ICollectiveRatingLayer"
+    permission="zope2.View"
+    template="templates/rating_viewlet.pt"
+    />
+
+  <!-- helper view for rating -->
+  <browser:pages
+    for="collective.rating.behaviors.rating.IRatingLayer"
+    permission="zope2.View"
+    class=".manage_rating.ManageRating">
+       <browser:page name="update_rating" attribute="update_rating" />
+       <browser:page name="delete_rating" attribute="delete_rating" />
+       <browser:page name="get_rating" attribute="get_rating" />
+       <browser:page name="get_avg_rating" attribute="get_avg_rating" />
+       <browser:page name="get_star_size" attribute="get_star_size" />
+  </browser:pages>
+
+</configure>

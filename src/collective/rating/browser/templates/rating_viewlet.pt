@@ -1,0 +1,7 @@
+<div id="manage-rating" i18n:domain="collective.rating" tal:condition="view/rating_is_active">
+  <span>Media</span>
+  <span class="average-rating"></span>
+  (<span class="num_rating">num_rating</span> voti)
+  <br />
+  <a href="javascript:void(0);" class="delete-rating">X</a> <span class="my-rating"></span>
+</div>

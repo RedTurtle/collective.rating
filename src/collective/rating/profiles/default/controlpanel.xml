@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<object
+        name="portal_controlpanel"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        i18n:domain="collective.rating"
+        purge="False">
+
+        <configlet
+            title="Rating settings"
+            action_id="rating_setting"
+            appId="collective.rating"
+            category="Products"
+            condition_expr=""
+            url_expr="string:${portal_url}/@@rating-settings"
+            visible="True"
+            i18n:attributes="title">
+                <permission>Manage portal</permission>
+        </configlet>
+
+</object>

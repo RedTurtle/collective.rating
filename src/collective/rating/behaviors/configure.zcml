@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.rating">
+
+    <plone:behavior
+      title="Rating Behaviors"
+      description="Adds possibility to rate content type"
+      provides=".rating.IRating"
+      factory=".rating.Rating"
+      marker="collective.rating.behaviors.rating.IRatingLayer"
+      />
+
+</configure>
