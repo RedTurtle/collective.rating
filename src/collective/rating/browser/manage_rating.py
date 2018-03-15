@@ -1,27 +1,18 @@
 # -*- coding: utf-8 -*-
 from collective.rating.behaviors.rating import IRating
-from collective.rating.behaviors.rating import KEY
-from persistent.dict import PersistentDict
+from collective.rating.utils import storage
 from plone import api
 from Products.Five import BrowserView
-from zope.annotation.interfaces import IAnnotations
 
 import json
 
 
 class ManageRating(BrowserView):
 
-    def _storage(self, item):
-        if item:
-            annotations = IAnnotations(item)
-            if KEY not in annotations:
-                annotations[KEY] = PersistentDict({})
-            return annotations[KEY]
-
     def update_rating(self):
         current_rating = self.request.get('current_rating', None)
         if current_rating:
-            annotations = self._storage(self.context)
+            annotations = storage(self.context)
             username = api.user.get_current().getUserName()
             annotations[username] = {
                 'user': username,
@@ -29,7 +20,7 @@ class ManageRating(BrowserView):
             }
 
     def delete_rating(self):
-        annotations = self._storage(self.context)
+        annotations = storage(self.context)
         username = api.user.get_current().getUserName()
         if username in annotations.keys():
             del annotations[username]
@@ -38,7 +29,7 @@ class ManageRating(BrowserView):
             return json.dumps({'ok': False})
 
     def get_rating(self):
-        annotations = self._storage(self.context)
+        annotations = storage(self.context)
         username = api.user.get_current().getUserName()
         if username in annotations.keys():
             return json.dumps(

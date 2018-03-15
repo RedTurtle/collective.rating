@@ -1,17 +1,13 @@
 # -*- coding: utf-8 -*-
 from collective.rating import _
 from collective.rating.browser.settings import ISettingsSchema
-from persistent.dict import PersistentDict
+from collective.rating.utils import storage
 from plone import api
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
 from zope import schema
-from zope.annotation.interfaces import IAnnotations
 from zope.interface import alsoProvides
 from zope.interface import Interface
-
-
-KEY = 'collective.rating.values'
 
 
 def default_stars():
@@ -73,26 +69,31 @@ class Rating(object):
     def max_rating(self):
         return self.context.max_rating
 
+    def _new_vote(self, old_rating, new_max_rating):
+        return float(
+            float(
+                new_max_rating * float(old_rating)) / self.context.max_rating)
+
     @max_rating.setter
     def max_rating(self, value):
+        annotations = storage(self.context)
+        for user in annotations.keys():
+            annotations[user] = {
+                'rating_value':  self._new_vote(
+                    annotations[user]['rating_value'], value),
+                'user': user,
+            }
         self.context.max_rating = value
 
-    def _storage(self, item):
-        if item:
-            annotations = IAnnotations(item)
-            if KEY not in annotations:
-                annotations[KEY] = PersistentDict({})
-            return annotations[KEY]
-
     def num_rating(self):
-        annotations = self._storage(self.context)
+        annotations = storage(self.context)
         return len(annotations.keys())
 
     def rating_list(self, annotations):
         return map(lambda x: x['rating_value'], annotations.values())
 
     def avg_rating(self):
-        annotations = self._storage(self.context)
+        annotations = storage(self.context)
         if annotations:
             num_rating = len(annotations.keys())
             sum_rating = reduce(
