@@ -1,6 +1,3 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -13,46 +10,46 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: en\n"
-"Language-Name: English\n"
+"Language-Name: Italian\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: collective.rating\n"
+"Domain: DOMAIN\n"
 
 #: ./behaviors/configure.zcml:13
 msgid "Adds possibility to rate content type"
-msgstr ""
+msgstr "Aggiunge la possibilità di votare i contenuti"
 
 #: ./browser/settings.py:30
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #: ./configure.zcml:29
 msgid "Installs the collective.rating add-on."
-msgstr ""
+msgstr "Installa l'addon collective.rating"
 
 #: ./behaviors/configure.zcml:13
 msgid "Rating Behaviors"
-msgstr ""
+msgstr "Behaviors per la votazione"
 
 #: ./profiles/default/controlpanel.xml
 msgid "Rating settings"
-msgstr ""
+msgstr "Impostazioni Rating"
 
 #: ./behaviors/rating.py:26
 msgid "Rating's field"
-msgstr ""
+msgstr "Campi per la votazione"
 
 #: ./browser/settings.py:34
 msgid "Save"
-msgstr ""
+msgstr "Salva"
 
 #: ./configure.zcml:38
 msgid "Uninstalls the collective.rating add-on."
-msgstr ""
+msgstr "Disinstalla l'addon collective.rating"
 
 #. Default: "Rating is active"
 #: ./behaviors/rating.py:34
 msgid "active_rating_title"
-msgstr ""
+msgstr "Votazione attiva"
 
 #: ./configure.zcml:29
 msgid "collective.rating"
@@ -65,12 +62,12 @@ msgstr ""
 #. Default: "Default stars number"
 #: ./browser/settings.py:13
 msgid "default_stars_title"
-msgstr ""
+msgstr "Numero di stelle di default"
 
 #. Default: "Num of stars"
 #: ./behaviors/rating.py:40
 msgid "max_rating_title"
-msgstr ""
+msgstr "Numero di stelle"
 
 #. Default: "Rating Settings"
 #: ./browser/settings.py:22

@@ -76,14 +76,15 @@ class Rating(object):
 
     @max_rating.setter
     def max_rating(self, value):
-        annotations = storage(self.context)
-        for user in annotations.keys():
-            annotations[user] = {
-                'rating_value':  self._new_vote(
-                    annotations[user]['rating_value'], value),
-                'user': user,
-            }
-        self.context.max_rating = value
+        if self.context.max_rating != value:
+            annotations = storage(self.context)
+            for user in annotations.keys():
+                annotations[user] = {
+                    'rating_value':  self._new_vote(
+                        annotations[user]['rating_value'], value),
+                    'user': user,
+                }
+            self.context.max_rating = value
 
     def num_rating(self):
         annotations = storage(self.context)
