@@ -1,7 +1,16 @@
 <div id="manage-rating" i18n:domain="collective.rating" tal:condition="view/rating_is_active">
-  <span>Media</span>
-  <span class="average-rating"></span>
-  (<span class="num_rating">num_rating</span> voti)
-  <br />
-  <a href="javascript:void(0);" class="delete-rating">X</a> <span class="my-rating"></span>
+    <div class="rating-group">
+        <span class="rating-label">Media</span>
+        <span class="average-rating"></span>
+        <div class="num-rating">
+          (<span class="num_rating">num_rating</span> voti)
+        </div>
+    </div>
+    <div class="rating-group">
+        <span class="rating-label">Vota</span>
+        <span class="my-rating"></span>
+        <a href="javascript:void(0);" class="delete-rating">
+            <i class="fas fa-trash"></i>
+        </a>
+    </div>
 </div>
