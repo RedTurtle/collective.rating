@@ -3,7 +3,7 @@
         <span class="rating-label">Media</span>
         <span class="average-rating"></span>
         <div class="num-rating">
-          (<span class="num_rating">num_rating</span> voti)
+          (<span class="num_rating">num_rating</span>&nbsp;voti)
         </div>
     </div>
     <div class="rating-group">
