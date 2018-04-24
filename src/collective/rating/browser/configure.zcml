@@ -31,7 +31,7 @@
   <browser:viewlet
     name="rating_viewlet"
     for="collective.rating.behaviors.rating.IRatingLayer"
-    manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
     class=".rating_viewlet.RatingManagerViewlet"
     layer="collective.rating.interfaces.ICollectiveRatingLayer"
     permission="zope2.View"
