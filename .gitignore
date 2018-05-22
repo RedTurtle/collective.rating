@@ -33,3 +33,4 @@ report.html
 !.gitkeep
 !.travis.yml
 !src/collective
+node_modules/
