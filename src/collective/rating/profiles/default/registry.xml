@@ -5,7 +5,7 @@
 
   <records prefix="plone.resources/rating"
           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-    <value key="js">++plone++collective.rating/scripts/rating-compile.min.js</value>
+    <value key="js">++plone++collective.rating/scripts/src/rating.js</value>
     <value key="css">
       <element>++plone++collective.rating/star-rating-svg.css</element>
     </value>

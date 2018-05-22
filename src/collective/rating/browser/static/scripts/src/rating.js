@@ -1,6 +1,6 @@
 require.config({
     "paths": {
-      "rating": PORTAL_URL + "/++plone++collective.rating/scripts/jquery.star-rating-svg",
+      "rating": PORTAL_URL + "/++plone++collective.rating/scripts/src/jquery.star-rating-svg",
     }
 });
 requirejs(["jquery", "rating"], function($, rating){
@@ -48,6 +48,20 @@ requirejs(["jquery", "rating"], function($, rating){
           });
         }
     });
+    $(".my-rating").children().each(
+      function( index ){
+        $(this).attr('tabindex', 0);
+        $(this).attr('title', parseInt(index) + 1);
+        $(this).keyup(function(event) {
+            if (event.keyCode === 13) {
+                $( this ).click();
+            }
+        });
+        $( this ).focus(function(){
+          $( this ).trigger("mouseover");
+        });
+      }
+    );
   }
 
   function render_avg_rating(data, totalStars){
@@ -97,6 +111,5 @@ requirejs(["jquery", "rating"], function($, rating){
         $(this).find('.num-voti').text(result['number_of_ratings']);
       });
     }
-
   });
 });
