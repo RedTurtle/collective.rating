@@ -6,34 +6,19 @@
 collective.rating
 =================
 
-Tell me what your product does
+This product provides a behaviors that if assigned to a content type make this
+votable.
 
 Features
 --------
 
-- Can be bullet points
+- For the votable content there is a viewlet that showing the average grade for object
+  and offers the possibility for users to votable that content.
 
+- It is possible manage the number of stars with which we want to vote for the various
+  content through a specific control panel.
 
-Examples
---------
-
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
-
-
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
-
-
-Translations
-------------
-
-This product has been translated into
-
-- Klingon (thanks, K'Plai)
-
+- It is possible for single object manage the number of stars to show and whether make it or no not votable
 
 Installation
 ------------
@@ -51,22 +36,26 @@ Install collective.rating by adding it to your buildout::
 and then running ``bin/buildout``
 
 
-Contribute
-----------
 
-- Issue Tracker: https://github.com/collective/collective.rating/issues
-- Source Code: https://github.com/collective/collective.rating
-- Documentation: https://docs.plone.org/foo/bar
+Dependencies
+------------
+
+This product has been tested on Plone 5.1
 
 
-Support
+Credits
 -------
 
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
+Developed with the support of `Regione Emilia Romagna <http://www.regione.emilia-romagna.it/>`_;
+
+Regione Emilia Romagna supports the `PloneGov initiative <http://www.plonegov.it/>`_.
 
 
-License
+Authors
 -------
 
-The project is licensed under the GPLv2.
+This product was developed by RedTurtle Technology team.
+
+.. image:: http://www.redturtle.it/redturtle_banner.png
+   :alt: RedTurtle Technology Site
+   :target: http://www.redturtle.it/
