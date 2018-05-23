@@ -1,4 +1,9 @@
 graft src/collective
 graft docs
 include *.rst
+include *.GPL
+include *.txt
 global-exclude *.pyc
+exclude package-lock.json
+prune node_modules
+prune src/collective/rating/browser/static/scripts/src/node_modules
