@@ -6,7 +6,7 @@
           (<span class="num_rating">num_rating</span>&nbsp;voti)
         </div>
     </div>
-    <div class="rating-group">
+    <div class="rating-group" tal:condition="view/can_vote">
         <span class="rating-label">Vota</span>
         <span class="my-rating"></span>
         <a href="javascript:void(0);" class="delete-rating">
