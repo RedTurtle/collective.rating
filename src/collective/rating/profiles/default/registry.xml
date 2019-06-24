@@ -19,6 +19,7 @@
     <value key="jscompilation">++plone++collective.rating/scripts/rating-compile.min.js</value>
     <value key="csscompilation">++plone++collective.rating/star-rating-svg.css</value>
     <value key="compile">True</value>
+    <value key="last_compilation">2019-06-27 00:00:00</value>
   </records>
 
 </registry>

@@ -21,7 +21,6 @@ module.exports = function(grunt) {
           preserveLicenseComments: false,
           paths: {
             jquery: 'empty:',
-            rating: './jquery.star-rating-svg',
           },
           // shim: {
           //   rating: {

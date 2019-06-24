@@ -1,4 +1,6 @@
-/*
+require(["jquery"], function($){
+
+  /*
  *  jQuery StarRatingSvg v1.2.0
  *
  *  http://github.com/nashio/star-rating-svg
@@ -314,14 +316,6 @@
 
 })( jQuery, window, document );
 
-define("rating", function(){});
-
-require.config({
-    "paths": {
-      "rating": PORTAL_URL + "/++plone++collective.rating/scripts/src/jquery.star-rating-svg",
-    }
-});
-requirejs(["jquery", "rating"], function($, rating){
 
   function get_portal_url(){
     return $('base').attr('href') || $('body').attr('data-base-url') || window.PORTAL_URL || '';
