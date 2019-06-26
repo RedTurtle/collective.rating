@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="Document" meta_type="Dexterity FTI" purge="False">
+  
+  <property name="behaviors" purge="false">
+    <element value="collective.rating.behaviors.rating.IRating"/>
+  </property>
+
+</object>

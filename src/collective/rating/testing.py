@@ -29,13 +29,13 @@ COLLECTIVE_RATING_FIXTURE = CollectiveRatingLayer()
 
 COLLECTIVE_RATING_INTEGRATION_TESTING = IntegrationTesting(
     bases=(COLLECTIVE_RATING_FIXTURE,),
-    name='CollectiveRatingLayer:IntegrationTesting'
+    name='CollectiveRatingLayer:IntegrationTesting',
 )
 
 
 COLLECTIVE_RATING_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(COLLECTIVE_RATING_FIXTURE,),
-    name='CollectiveRatingLayer:FunctionalTesting'
+    name='CollectiveRatingLayer:FunctionalTesting',
 )
 
 
@@ -43,7 +43,7 @@ COLLECTIVE_RATING_ACCEPTANCE_TESTING = FunctionalTesting(
     bases=(
         COLLECTIVE_RATING_FIXTURE,
         REMOTE_LIBRARY_BUNDLE_FIXTURE,
-        z2.ZSERVER_FIXTURE
+        z2.ZSERVER_FIXTURE,
     ),
-    name='CollectiveRatingLayer:AcceptanceTesting'
+    name='CollectiveRatingLayer:AcceptanceTesting',
 )

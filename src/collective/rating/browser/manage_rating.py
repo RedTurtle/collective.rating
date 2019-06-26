@@ -22,7 +22,7 @@ class ManageRating(BrowserView):
     def delete_rating(self):
         annotations = storage(self.context)
         username = api.user.get_current().getUserName()
-        if username in annotations.keys():
+        if username in list(annotations.keys()):
             del annotations[username]
             return json.dumps({'ok': True})
         else:
@@ -31,7 +31,7 @@ class ManageRating(BrowserView):
     def get_rating(self):
         annotations = storage(self.context)
         username = api.user.get_current().getUserName()
-        if username in annotations.keys():
+        if username in list(annotations.keys()):
             return json.dumps(
                 {'current_value': annotations[username]['rating_value']}
             )

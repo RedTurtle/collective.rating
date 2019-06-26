@@ -11,9 +11,9 @@ class RatingManagerViewlet(ViewletBase):
         return self.index()
 
     def can_vote(self):
-        permissions = api.user.get_permissions(user=api.user.get_current())
-        return (
-            permissions["collective.rating: Vote a content"]
-            if permissions.get("collective.rating: Vote a content")
-            else False
+        return api.user.has_permission(
+            'collective.rating: Vote a content',
+            user=api.user.get_current(),
+            obj=self.context,
         )
+
