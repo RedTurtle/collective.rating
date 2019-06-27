@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 """Setup tests for this package."""
-from collective.rating.testing import COLLECTIVE_RATING_INTEGRATION_TESTING  # noqa: E501
+from collective.rating.testing import (  # noqa
+    COLLECTIVE_RATING_INTEGRATION_TESTING,  # noqa
+)  # noqa
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 
 import unittest
+
 
 try:
     from Products.CMFPlone.utils import get_installer
@@ -28,17 +31,14 @@ class TestSetup(unittest.TestCase):
 
     def test_product_installed(self):
         """Test if collective.rating is installed."""
-        self.assertTrue(self.installer.isProductInstalled(
-            'collective.rating'))
+        self.assertTrue(self.installer.isProductInstalled('collective.rating'))
 
     def test_browserlayer(self):
         """Test that ICollectiveRatingLayer is registered."""
-        from collective.rating.interfaces import (
-            ICollectiveRatingLayer)
+        from collective.rating.interfaces import ICollectiveRatingLayer
         from plone.browserlayer import utils
-        self.assertIn(
-            ICollectiveRatingLayer,
-            utils.registered_layers())
+
+        self.assertIn(ICollectiveRatingLayer, utils.registered_layers())
 
 
 class TestUninstall(unittest.TestCase):
@@ -58,14 +58,13 @@ class TestUninstall(unittest.TestCase):
 
     def test_product_uninstalled(self):
         """Test if collective.rating is cleanly uninstalled."""
-        self.assertFalse(self.installer.isProductInstalled(
-            'collective.rating'))
+        self.assertFalse(
+            self.installer.isProductInstalled('collective.rating')
+        )
 
     def test_browserlayer_removed(self):
         """Test that ICollectiveRatingLayer is removed."""
-        from collective.rating.interfaces import \
-            ICollectiveRatingLayer
+        from collective.rating.interfaces import ICollectiveRatingLayer
         from plone.browserlayer import utils
-        self.assertNotIn(
-            ICollectiveRatingLayer,
-            utils.registered_layers())
+
+        self.assertNotIn(ICollectiveRatingLayer, utils.registered_layers())

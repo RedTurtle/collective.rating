@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Setup tests for this package."""
-from collective.rating.testing import (
-    COLLECTIVE_RATING_INTEGRATION_TESTING,
-)  # noqa: E501
+from collective.rating.testing import (  # noqa
+    COLLECTIVE_RATING_INTEGRATION_TESTING,  # noqa
+)  # noqa
 from collective.rating.behaviors.rating import IRating
 from plone import api
 from plone.app.testing import setRoles
