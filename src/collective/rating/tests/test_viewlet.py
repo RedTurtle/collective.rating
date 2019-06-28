@@ -51,4 +51,3 @@ class TestViewlet(unittest.TestCase):
         self.assertNotIn('manage-rating', view())
         self._enable_rating_behavior()
         self.assertIn('manage-rating', view())
-

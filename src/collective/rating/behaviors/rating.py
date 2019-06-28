@@ -25,10 +25,7 @@ class IRating(model.Schema):
     model.fieldset(
         u'Rating field',
         label=_(u'Rating\'s field'),
-        fields=[
-            u'active_rating',
-            u'max_rating',
-        ]
+        fields=[u'active_rating', u'max_rating'],
     )
 
     active_rating = schema.Bool(
@@ -54,7 +51,6 @@ alsoProvides(IRating, IFormFieldProvider)
 
 
 class Rating(object):
-
     def __init__(self, context):
         self.context = context
 
@@ -72,8 +68,8 @@ class Rating(object):
 
     def _new_vote(self, old_rating, new_max_rating):
         return float(
-            float(
-                new_max_rating * float(old_rating)) / self.context.max_rating)
+            float(new_max_rating * float(old_rating)) / self.context.max_rating
+        )
 
     @max_rating.setter
     def max_rating(self, value):
@@ -81,8 +77,9 @@ class Rating(object):
             annotations = storage(self.context)
             for user in annotations.keys():
                 annotations[user] = {
-                    'rating_value':  self._new_vote(
-                        annotations[user]['rating_value'], value),
+                    'rating_value': self._new_vote(
+                        annotations[user]['rating_value'], value
+                    ),
                     'user': user,
                 }
             self.context.max_rating = value
@@ -100,7 +97,8 @@ class Rating(object):
             num_rating = len(list(annotations.keys()))
             sum_rating = reduce(
                 (lambda x, y: float(x) + float(y)),
-                self.rating_list(annotations))
+                self.rating_list(annotations),
+            )
             return float(float(sum_rating) / num_rating)
         else:
             return 0

@@ -37,16 +37,17 @@ class RatingSettings(controlpanel.RegistryEditForm):
 
     def _new_vote(self, old_rating, new_max_rating, obj):
         return float(
-            float(
-                new_max_rating * float(old_rating)) / obj.max_rating)
+            float(new_max_rating * float(old_rating)) / obj.max_rating
+        )
 
     def update_rating(self, obj, value):
         if obj.max_rating != value:
             annotations = storage(obj)
             for user in annotations.keys():
                 annotations[user] = {
-                    'rating_value':  self._new_vote(
-                        annotations[user]['rating_value'], value, obj),
+                    'rating_value': self._new_vote(
+                        annotations[user]['rating_value'], value, obj
+                    ),
                     'user': user,
                 }
             obj.max_rating = value
@@ -60,7 +61,8 @@ class RatingSettings(controlpanel.RegistryEditForm):
         # controlli quali oggetti hanno la behaviors rating e aggiorno i dati
         catalog = api.portal.get_tool(name='portal_catalog')
         brains = catalog(
-            object_provides='collective.rating.behaviors.rating.IRatingLayer')
+            object_provides='collective.rating.behaviors.rating.IRatingLayer'
+        )
         for brain in brains:
             self.update_rating(brain.getObject(), data['default_stars'])
 

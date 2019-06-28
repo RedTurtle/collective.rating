@@ -16,4 +16,3 @@ class RatingManagerViewlet(ViewletBase):
             user=api.user.get_current(),
             obj=self.context,
         )
-
