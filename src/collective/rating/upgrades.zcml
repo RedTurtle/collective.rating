@@ -12,5 +12,14 @@
     handler=".upgrades.migrate_to_1001"
     />
 
+  <genericsetup:upgradeStep
+    source="1001"
+    destination="1002"
+    title="Upgrade collective.rating to 1002"
+    description=""
+    profile="collective.rating:default"
+    handler=".upgrades.migrate_to_1002"
+    />
+
 
 </configure>

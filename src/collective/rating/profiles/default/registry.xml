@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<registry>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="collective.rating">
 
   <records interface="collective.rating.browser.settings.ISettingsSchema" />
 
@@ -20,6 +21,43 @@
     <value key="csscompilation">++plone++collective.rating/star-rating-svg.css</value>
     <value key="compile">True</value>
     <value key="last_compilation">2019-06-27 00:00:00</value>
+  </records>
+
+  <records interface="plone.app.querystring.interfaces.IQueryOperation"
+            prefix="plone.app.querystring.operation.float.is">
+      <value key="title" i18n:translate="">Equals</value>
+      <value key="description"></value>
+      <value key="operation">collective.rating.queryparser._floatEqual</value>
+      <value key="widget">StringWidget</value>
+  </records>
+
+  <records interface="plone.app.querystring.interfaces.IQueryOperation"
+            prefix="plone.app.querystring.operation.float.lessThan">
+      <value key="title" i18n:translate="">Less than</value>
+      <value key="description"></value>
+      <value key="operation">collective.rating.queryparser._floatLessThan</value>
+      <value key="widget">StringWidget</value>
+  </records>
+
+  <records interface="plone.app.querystring.interfaces.IQueryOperation"
+            prefix="plone.app.querystring.operation.float.largerThan">
+      <value key="title" i18n:translate="">Larger than</value>
+      <value key="description"></value>
+      <value key="operation">collective.rating.queryparser._floatLargerThan</value>
+      <value key="widget">StringWidget</value>
+  </records>
+
+  <records interface="plone.app.querystring.interfaces.IQueryField"
+           prefix="plone.app.querystring.field.avg-rating">
+    <value key="title" i18n:translate="">AVG Rating</value>
+    <value key="enabled">True</value>
+    <value key="sortable">True</value>
+    <value key="operations">
+        <element>plone.app.querystring.operation.float.lessThan</element>
+        <element>plone.app.querystring.operation.float.largerThan</element>
+        <element>plone.app.querystring.operation.float.is</element>
+    </value>
+    <value key="group" i18n:translate="">Rating</value>
   </records>
 
 </registry>

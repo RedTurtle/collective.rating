@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="portal_catalog">
+
+    <index name="avg-rating" meta_type="FieldIndex">
+      <indexed_attr value="avg-rating"/>
+    </index>
+    <column value="avg-rating" />
+
+</object>

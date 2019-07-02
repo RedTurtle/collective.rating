@@ -7,7 +7,7 @@
     <plone:behavior
       title="Rating Behaviors"
       description="Adds possibility to rate content type"
-      provides=".rating.IRating"
+      provides="collective.rating.behaviors.rating.IRating"
       factory=".rating.Rating"
       marker="collective.rating.behaviors.rating.IRatingLayer"
       />
