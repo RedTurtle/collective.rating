@@ -27,6 +27,15 @@
       layer="collective.rating.interfaces.ICollectiveRatingLayer"
       />
 
+  <!-- view for rating collection -->
+  <browser:page
+      for="*"
+      name="rating_collection_view"
+      class=".view.RatingCollectionView"
+      template="templates/rating_collection.pt"
+      permission="zope2.View"
+      />
+
   <!-- viewlet for rating in object's view -->
   <browser:viewlet
     name="rating_viewlet"
