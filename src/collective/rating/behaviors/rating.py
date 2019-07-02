@@ -6,36 +6,38 @@ from plone import api
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
 from zope import schema
-from zope.interface import alsoProvides
+from zope.interface import provider
 from zope.interface import Interface
 from functools import reduce
+from zope.interface import implementer
 
 
 def default_stars():
-    return api.portal.get_registry_record('default_stars', ISettingsSchema)
+    return api.portal.get_registry_record("default_stars", ISettingsSchema)
 
 
 class IRatingLayer(Interface):
-    """ behaviors interface """
+    """ Marker interface for behavior """
 
 
+@provider(IFormFieldProvider)
 class IRating(model.Schema):
     """ Interface for rate """
 
     model.fieldset(
-        u'Rating field',
-        label=_(u'Rating\'s field'),
-        fields=[u'active_rating', u'max_rating'],
+        u"Rating field",
+        label=_(u"Rating's field"),
+        fields=[u"active_rating", u"max_rating"],
     )
 
     active_rating = schema.Bool(
-        title=_(u'active_rating_title', default=u'Rating is active'),
+        title=_(u"active_rating_title", default=u"Rating is active"),
         default=True,
         required=True,
     )
 
     max_rating = schema.Int(
-        title=_(u'max_rating_title', default=u'Num of stars'),
+        title=_(u"max_rating_title", default=u"Num of stars"),
         required=True,
         defaultFactory=default_stars,
     )
@@ -46,10 +48,11 @@ class IRating(model.Schema):
     def num_rating():
         """ return num of rating """
 
+    def update_avg_rating():
+        """ update avg rating on catalog """
 
-alsoProvides(IRating, IFormFieldProvider)
 
-
+@implementer(IRating)
 class Rating(object):
     def __init__(self, context):
         self.context = context
@@ -77,10 +80,10 @@ class Rating(object):
             annotations = storage(self.context)
             for user in annotations.keys():
                 annotations[user] = {
-                    'rating_value': self._new_vote(
-                        annotations[user]['rating_value'], value
+                    "rating_value": self._new_vote(
+                        annotations[user]["rating_value"], value
                     ),
-                    'user': user,
+                    "user": user,
                 }
             self.context.max_rating = value
 

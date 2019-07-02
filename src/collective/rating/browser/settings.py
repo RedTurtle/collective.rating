@@ -10,7 +10,7 @@ from zope.interface import Interface
 
 class ISettingsSchema(Interface):
     default_stars = schema.Int(
-        title=_(u'default_stars_title', default=u'Default stars number'),
+        title=_(u"default_stars_title", default=u"Default stars number"),
         required=False,
         default=5,
     )
@@ -18,8 +18,8 @@ class ISettingsSchema(Interface):
 
 class RatingSettings(controlpanel.RegistryEditForm):
     schema = ISettingsSchema
-    id = u'RatingSettings'
-    label = _(u'rating_schema', default=u'Rating Settings')
+    id = u"RatingSettings"
+    label = _(u"rating_schema", default=u"Rating Settings")
 
     def updateFields(self):
         super(RatingSettings, self).updateFields()
@@ -27,11 +27,11 @@ class RatingSettings(controlpanel.RegistryEditForm):
     def updateWidgets(self):
         super(RatingSettings, self).updateWidgets()
 
-    @button.buttonAndHandler(_('Cancel'), name='cancel')
+    @button.buttonAndHandler(_("Cancel"), name="cancel")
     def handleCancel(self, action):
         super(RatingSettings, self).handleCancel(self, action)
 
-    @button.buttonAndHandler(_('Save'), name=None)
+    @button.buttonAndHandler(_("Save"), name=None)
     def handleSave(self, action):
         self.save()
 
@@ -45,10 +45,10 @@ class RatingSettings(controlpanel.RegistryEditForm):
             annotations = storage(obj)
             for user in annotations.keys():
                 annotations[user] = {
-                    'rating_value': self._new_vote(
-                        annotations[user]['rating_value'], value, obj
+                    "rating_value": self._new_vote(
+                        annotations[user]["rating_value"], value, obj
                     ),
-                    'user': user,
+                    "user": user,
                 }
             obj.max_rating = value
 
@@ -59,12 +59,12 @@ class RatingSettings(controlpanel.RegistryEditForm):
             return False
 
         # controlli quali oggetti hanno la behaviors rating e aggiorno i dati
-        catalog = api.portal.get_tool(name='portal_catalog')
+        catalog = api.portal.get_tool(name="portal_catalog")
         brains = catalog(
-            object_provides='collective.rating.behaviors.rating.IRatingLayer'
+            object_provides="collective.rating.behaviors.rating.IRatingLayer"
         )
         for brain in brains:
-            self.update_rating(brain.getObject(), data['default_stars'])
+            self.update_rating(brain.getObject(), data["default_stars"])
 
         self.applyChanges(data)
         return True
