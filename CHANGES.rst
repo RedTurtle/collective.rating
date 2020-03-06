@@ -8,7 +8,8 @@ Changelog
 - Added permission for vote a content.
 - Fixed bundle of js.
   [eikichi18]
-
+- Python 3 compatibility.
+  [cekk]
 
 1.0a2 (2018-05-25)
 ------------------
