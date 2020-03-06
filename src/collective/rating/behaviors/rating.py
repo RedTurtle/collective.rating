@@ -8,6 +8,7 @@ from plone.supermodel import model
 from zope import schema
 from zope.interface import provider
 from zope.interface import Interface
+from functools import reduce
 from zope.interface import implementer
 
 
@@ -88,15 +89,15 @@ class Rating(object):
 
     def num_rating(self):
         annotations = storage(self.context)
-        return len(annotations.keys())
+        return len(list(annotations.keys()))
 
     def rating_list(self, annotations):
-        return map(lambda x: x["rating_value"], annotations.values())
+        return [x['rating_value'] for x in list(annotations.values())]
 
     def avg_rating(self):
         annotations = storage(self.context)
         if annotations:
-            num_rating = len(annotations.keys())
+            num_rating = len(list(annotations.keys()))
             sum_rating = reduce(
                 (lambda x, y: float(x) + float(y)),
                 self.rating_list(annotations),

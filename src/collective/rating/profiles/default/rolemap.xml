@@ -6,6 +6,5 @@
   <permission name="collective.rating: Vote a content" acquire="True">
     <role name="Anonymous" />
   </permission>
-
   </permissions>
 </rolemap>
