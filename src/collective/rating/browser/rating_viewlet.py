@@ -11,8 +11,10 @@ class RatingManagerViewlet(ViewletBase):
         return self.index()
 
     def can_vote(self):
+        if api.env.read_only_mode():
+            return False
         return api.user.has_permission(
-            'collective.rating: Vote a content',
+            "collective.rating: Vote a content",
             user=api.user.get_current(),
             obj=self.context,
         )
