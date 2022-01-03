@@ -5,7 +5,8 @@ Changelog
 1.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Disallow vote link if the site is in readonly mode.
+  [cekk]
 
 
 1.1.0 (2020-03-06)
