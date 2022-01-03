@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.1.1 (unreleased)
+1.1.1 (2022-01-03)
 ------------------
 
 - Disallow vote link if the site is in readonly mode.
