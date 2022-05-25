@@ -16,7 +16,7 @@
     "eslint-plugin-flowtype": "^2.46.1",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-prettier": "^2.5.0",
-    "grunt": "~1.0.1",
+    "grunt": "~1.5.3",
     "grunt-browser-sync": "^2.2.0",
     "grunt-cli": "^1.2.0",
     "grunt-concat-css": "^0.3.2",
