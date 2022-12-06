@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="collective.rating">
+
+  <records interface="collective.rating.browser.settings.ISettingsSchema" 
+    remove="True"
+  />
+
+  <records prefix="plone.resources/rating"
+          interface='Products.CMFPlone.interfaces.IResourceRegistry'
+          remove="True">
+  </records>
+
+  <records prefix="plone.bundles/rating"
+          interface='Products.CMFPlone.interfaces.IBundleRegistry'
+          remove="True">
+  </records>
+
+  <records interface="plone.app.querystring.interfaces.IQueryOperation"
+            prefix="plone.app.querystring.operation.float.is"
+            remove="True">
+  </records>
+
+  <records interface="plone.app.querystring.interfaces.IQueryOperation"
+            prefix="plone.app.querystring.operation.float.lessThan"
+            remove="True">
+  </records>
+
+  <records interface="plone.app.querystring.interfaces.IQueryOperation"
+            prefix="plone.app.querystring.operation.float.largerThan"
+           remove="True">
+  </records>
+
+  <records interface="plone.app.querystring.interfaces.IQueryField"
+           prefix="plone.app.querystring.field.avg-rating"
+          remove="True">
+  </records>
+
+</registry>

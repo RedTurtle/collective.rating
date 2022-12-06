@@ -2,6 +2,7 @@
 <layers>
   <layer
       name="collective.rating"
+      interface="collective.rating.interfaces.ICollectiveRatingLayer"
       remove="true"
       />
 </layers>
